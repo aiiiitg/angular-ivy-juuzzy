@@ -12,7 +12,7 @@ export class TodoService {
 
   constructor(/*private messageService: MessageService*/) { }
 
-  ngOnInit(){
+  addMockData(){
     // populate items list with mock data
     this.allItems.push({ description: 'eat', done: true });
     this.allItems.push({ description: 'sleep', done: false });
