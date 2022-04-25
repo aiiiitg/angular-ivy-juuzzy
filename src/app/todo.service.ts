@@ -9,21 +9,26 @@ import { Item } from './item';
 export class TodoService {
   allItems = new Array();
   filter: 'all' | 'active' | 'done' = 'all';
+  idIncrement = 0;
 
-  constructor(/*private messageService: MessageService*/) { }
+  constructor() { }
 
   addMockData(){
     // populate items list with mock data
-    this.allItems.push({ description: 'eat', done: true });
-    this.allItems.push({ description: 'sleep', done: false });
-    this.allItems.push({ description: 'play', done: false });
-    this.allItems.push({ description: 'laugh', done: false });
+    this.allItems.push({ id: 1, description: 'eat', done: true });
+    this.allItems.push({ id: 2, description: 'sleep', done: false });
+    this.allItems.push({ id: 3, description: 'play', done: false });
+    this.allItems.push({ id: 4, description: 'laugh', done: false });
   }
 
   getItems(): Observable<Item[]> {
     const items = of(this.allItems);
-    console.log(this.allItems.length);
-    console.log(this.allItems[0]);
+    for(let item of this.allItems){
+      if(item.id > this.idIncrement){
+        this.idIncrement = item.id;
+      }
+    }
+    this.idIncrement++;
     /*
     if (this.filter === 'all') {
       items = of(this.allItems);
@@ -44,9 +49,11 @@ export class TodoService {
   addItem(description: string){
     // unshift (to top), push (to end)
     this.allItems.unshift({
+      id: this.idIncrement,
       description,
       done: false
     });
+    this.idIncrement++;
   }
   
   remove(item) {
