@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  template: `<h1>i am the home page!</h1>`
+  template: './view/view-list.component.html',
+  styleUrls: [ './view/view-list.component.css' ]
 })
 export class ViewListComponent implements OnInit {
   constructor() {}
