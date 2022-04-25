@@ -8,7 +8,6 @@ import { ItemComponent } from './item/item.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, MatIconModule ],
-  exports:      [ MatIconModule ],
   declarations: [ AppComponent, ItemComponent ],
   bootstrap:    [ AppComponent ]
 })
