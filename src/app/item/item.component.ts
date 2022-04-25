@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { Item } from "../item";
+
 
 @Component({
   selector: 'app-item',
@@ -9,6 +11,7 @@ import { Item } from "../item";
 export class ItemComponent {
 
   editable = false;
+  constructor(private router: Router){} 
 
   @Input() item: Item;
   @Input() newItem: string;
@@ -17,6 +20,9 @@ export class ItemComponent {
     if (!description) return;
     this.editable = false;
     this.item.description = description;
+  }
+  openDetail(id: number){
+    this.router.navigate(['/item/'+ id]);
   }
 
   /* Abandon click outside code as taking too long, use simple tick/cross buttons ---
