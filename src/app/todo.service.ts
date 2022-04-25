@@ -24,9 +24,9 @@ export class TodoService {
 
   getItems(): Observable<item[]> {
     if (this.filter === 'all') {
-      return this.allItems;
+      return of(this.allItems);
     }
-    return this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done);
+    return of(this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done));
   }
 
   countItems(filter: string) {
