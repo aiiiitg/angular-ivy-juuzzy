@@ -14,22 +14,22 @@
   <div class="btn-wrapper">
     <button
       class="btn btn-menu"
-      [class.active]="filter == 'all'"
-      (click)="filter = 'all'">
+      [class.active]="getFilter() == 'all'"
+      (click)="setFilter('all')">
       All
     </button>
 
     <button
       class="btn btn-menu"
-      [class.active]="filter == 'active'"
-      (click)="filter = 'active'">
+      [class.active]="getFilter() == 'active'"
+      (click)="setFilter('active')">
       To Do
     </button>
 
     <button
       class="btn btn-menu"
-      [class.active]="filter == 'done'"
-      (click)="filter = 'done'">
+      [class.active]="getFilter() == 'done'"
+      (click)="setFilter('done')">
       Done
     </button>
   </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { item } from './item';
+import { Item } from './item';
 //import { HEROES } from './mock-heroes';
 //import { MessageService } from './message.service';
 
@@ -22,7 +22,7 @@ export class TodoService {
     this.allItems.push({ description: 'laugh', done: false });
   }
 
-  getItems(): Observable<item[]> {
+  getItems(): Observable<Item[]> {
     if (this.filter === 'all') {
       return of(this.allItems);
     }
