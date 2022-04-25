@@ -6,7 +6,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-home',
-  template: `<h1>This is {{ username }}'s profile!</h1>`
+  template: `<h1>This is {{ id }}'s profile!</h1>`
 })
 export class ViewDetailComponent implements OnInit {
   id: number;
@@ -19,7 +19,7 @@ export class ViewDetailComponent implements OnInit {
     // observable way
     this.route.paramMap.subscribe(params => {
       console.log(params.get('id'));
-      this.id = params.get('id');
+      this.id = +params.get('id');
     });
   }
 }
