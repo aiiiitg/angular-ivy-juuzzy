@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Item } from './item';
-//import { HEROES } from './mock-heroes';
-//import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +21,15 @@ export class TodoService {
   }
 
   getItems(): Observable<Item[]> {
+    const items = of(this.allItems);
+    /*
     if (this.filter === 'all') {
-      return of(this.allItems);
+      items = of(this.allItems);
     }
-    return of(this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done));
+    else{
+      items = of(this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done));
+    }*/
+    return items;
   }
 
   countItems(filter: string) {
