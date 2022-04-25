@@ -25,6 +25,13 @@ export class AppComponent  {
     return this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done);
   }
 
+  countItems(filter: string) {
+    if (filter === 'all') {
+      return this.allItems.length;
+    }
+    return this.allItems.filter(item => filter === 'done' ? item.done : !item.done).length;
+  }
+
   addItem(description: string){
     // unshift (to top), push (to end)
     this.allItems.unshift({
