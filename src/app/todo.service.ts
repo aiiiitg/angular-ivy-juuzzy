@@ -22,6 +22,8 @@ export class TodoService {
 
   getItems(): Observable<Item[]> {
     const items = of(this.allItems);
+    console.log(this.allItems.length);
+
     /*
     if (this.filter === 'all') {
       items = of(this.allItems);

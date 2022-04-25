@@ -12,7 +12,9 @@ export class ViewListComponent implements OnInit {
   items: Item[] = [];
 
   constructor(private route: ActivatedRoute, public todoService: TodoService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.getItems();
+  }
 
   setFilter(filter: 'all' | 'active' | 'done' = 'all'){
     this.todoService.filter = filter;
