@@ -13,7 +13,6 @@ export class ViewListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, public todoService: TodoService) {}
   ngOnInit() {
-    this.todoService.addMockData();
     this.getItems();
   }
 
