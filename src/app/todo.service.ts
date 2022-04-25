@@ -8,29 +8,21 @@ import { item } from './item';
 @Injectable({
   providedIn: 'root',
 })
-export class HeroService {
+export class TodoService {
+  allItems = new Array();
+  filter: 'all' | 'active' | 'done' = 'all';
 
   constructor(/*private messageService: MessageService*/) { }
 
-  getHeroes(): Observable<Hero[]> {
-    const heroes = of(HEROES);
-    this.messageService.add('HeroService: fetched heroes');
-    return heroes;
+  ngOnInit(){
+    // populate items list with mock data
+    this.allItems.push({ description: 'eat', done: true });
+    this.allItems.push({ description: 'sleep', done: false });
+    this.allItems.push({ description: 'play', done: false });
+    this.allItems.push({ description: 'laugh', done: false });
   }
-}
 
-/*
-
-  filter: 'all' | 'active' | 'done' = 'all';
-
-  allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'play', done: false },
-    { description: 'laugh', done: false },
-  ];
-
-  get items() {
+  getItems(): Observable<item[]> {
     if (this.filter === 'all') {
       return this.allItems;
     }
@@ -55,4 +47,10 @@ export class HeroService {
   remove(item) {
     this.allItems.splice(this.allItems.indexOf(item), 1);
   }
-*/
+  /*
+  getHeroes(): Observable<Hero[]> {
+    const heroes = of(HEROES);
+    this.messageService.add('HeroService: fetched heroes');
+    return heroes;
+  }*/
+}
