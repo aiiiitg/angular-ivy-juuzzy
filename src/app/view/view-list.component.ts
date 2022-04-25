@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  template: './view-list.component.html',
+  templateUrl: './view-list.component.html',
   styleUrls: [ './view-list.component.css' ]
 })
-export class ViewListComponent implements OnInit {
-  constructor() {}
+export class ViewListComponent implements OnInit {  
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit() {}
 }
