@@ -23,20 +23,3 @@ export class ViewDetailComponent implements OnInit {
     });
   }
 }
-
-
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    // snapshot way
-    console.log('thing', this.route.snapshot.params.username);
-
-    // observable way
-    this.route.paramMap.subscribe(params => {
-      console.log(params.get('username'));
-      this.username = params.get('username');
-    });
-  }
-
-}
