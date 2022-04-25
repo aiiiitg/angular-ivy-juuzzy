@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewListComponent } from './view/view-list.component';
+import { ViewDetailComponent } from './view/view-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ViewListComponent
-  }/*,
+  },
   {
-    path: 'users/:username',
-    component: UserComponent
-  }*/
+    path: 'item/:id',
+    component: ViewDetailComponent
+  }
 ];
 
 @NgModule({
