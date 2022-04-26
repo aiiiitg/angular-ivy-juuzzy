@@ -25,7 +25,8 @@ export class ViewDetailComponent implements OnInit {
       this.id = parseInt(params.get('id'));
     });
 
-    this.item = this.todoService.getItem(this.id)
+    this.todoService.getItem(this.id)
+        .subscribe(item => this.item = item);
   }
   goBack(){
     this.location.back();
