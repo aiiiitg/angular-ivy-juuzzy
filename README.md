@@ -2,7 +2,12 @@
 
 ## 'angular-ivy-juuzzy' on Stackblitz
 Stackblitz gave project the randomized name 'angular-ivy-juuzzy'
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-juuzzy)
+
+**Run on StackBlitz** ⚡️
+https://angular-ivy-juuzzy.stackblitz.io
+
+**Edit on StackBlitz** ⚡️
+https://stackblitz.com/edit/angular-ivy-juuzzy
 
 ## Approach
 Build a simple ToDo List following tutorial :
