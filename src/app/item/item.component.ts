@@ -9,17 +9,13 @@ import { Item } from "../item";
   styleUrls: [ '../app.component.css' ]
 })
 export class ItemComponent {
-  view: 'list' | 'detail' = 'list';
   editable = false;
   constructor(private router: Router){} 
 
   @Input() item: Item;
   @Input() newItem: string;
+  @Input() view: 'list' | 'detail' = 'list';
   @Output() remove = new EventEmitter<Item>();
-  
-  setView(view: 'list' | 'detail' = 'list'){
-    this.view = view;
-  }
 
   saveItem(description: string) {
     if (!description) return;
