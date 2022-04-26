@@ -10,7 +10,7 @@ import { Item } from "../item";
 })
 export class ItemComponent {
   editable = false;
-  constructor(private router: Router){} 
+  constructor(private router: Router, private eRef: ElementRef){} 
 
   @Input() item: Item;
   @Input() newItem: string;
@@ -29,7 +29,6 @@ export class ItemComponent {
       this.openList();
     }
   }
-
   openList(){   
     this.router.navigate(['']); //this.location.back();
   }
@@ -38,16 +37,13 @@ export class ItemComponent {
     this.router.navigate(['/item/'+ this.item.id]);
   }
 
-  /* Abandon click outside code as taking too long, use simple tick/cross buttons ---
+  //Abandon click outside code as taking too long, use simple tick/cross buttons ---
   @HostListener('document:click', ['$event'])
   clickout(event) {
     // save editing on click outside the editable component
-    if(this.editable && !this.eRef.nativeElement.contains(event.target)) {
-      this.saveItem(this.eRef.nativeElement.id); //editedItem.value);
+    if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target)) {
+      console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target)
+      //this.saveItem(this.eRef.nativeElement.id); //editedItem.value);
     }
   }
-  constructor(private eRef: ElementRef) {
-  }
-  */
-
 }
