@@ -4,7 +4,7 @@
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
   <button  class="btn_max" (click)="editable = !editable" style="text-align: left;">{{item.description}}</button>
-  <button class="btn_min" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
+  <button class="btn_min" (click)="openDetail()"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
   <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
@@ -12,7 +12,7 @@
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
   <button  class="btn_max" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.description}}</button>
-  <button class="btn_min" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
+  <button class="btn_min" (click)="openDetail()"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
   <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
