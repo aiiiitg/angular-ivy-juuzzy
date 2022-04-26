@@ -1,14 +1,26 @@
 <div class="view-list">
-  <!-- Todo Block -->
+  <!-- Todo Block - add item at top, then list items todo -->
   <h2>Todo {{countItems('todo')}} / {{countItems('all')}}</h2>
-  
   <ul>
+    <li>
+      <div class="btn-wrapper" *ngIf="!add; else addItem;">
+        <button class="btn_max" id="editAdd" (click)="add=true"><mat-icon aria-hidden="false" aria-label="Add">add</mat-icon></button>
+      </div>
+      <ng-template #addItem>
+        <div class="btn-wrapper">
+          <input [id]="add" type="checkbox" [checked]="false" disabled />
+          <label [for]="add"></label>
+          <input class="in_edit" id="editedAdd" placeholder="add a new item" [value]="" #addTitle (keyup.enter)="add=false">
+          <button class="btn_min" (click)="add=false;"><mat-icon aria-hidden="false" aria-label="Cancel">undo</mat-icon></button>
+        </div>
+      </ng-template>
+    </li> 
     <li *ngFor="let item of items">    
       <app-item *ngIf="!item.done" (remove)="remove(item)" [item]="item" [view]="'list'"></app-item>
     </li>
   </ul>
 
-  <!-- Done Block -->
+  <!-- Done Block - list items that are done -->
   <h2>Done {{countItems('done')}} / {{countItems('all')}}</h2>
   <ul>
     <li *ngFor="let item of items">    
