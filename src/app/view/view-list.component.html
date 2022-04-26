@@ -1,5 +1,4 @@
 <div class="view-list">
-  <label for="addItemInput">What would you like to do today?</label><br>
   <input
     #newItem
     placeholder="add an item"
@@ -11,6 +10,7 @@
   <button class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button>
 
   <!-- Buttons that show all, still to do, or done items on click -->
+<!--
   <div class="btn-wrapper">
     <button
       class="btn btn-menu"
@@ -33,7 +33,7 @@
       Done
     </button>
   </div>
-
+-->
   <!-- Todo Block -->
   <h2>{{countItems('todo')}} 
     <span *ngIf="countItems('todo') === 1; else multiTodo">item todo</span>
