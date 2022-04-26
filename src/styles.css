@@ -8,9 +8,11 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
 }
 
-.btn {
+.btn, .btn_min, .btn_max, .in_edit, .in_edit_max, .in_edit_max_multi {
   color: #000;
   background-color: #fff;
   border: 2px solid #cecece;
@@ -18,17 +20,40 @@ body {
   font-size: 1rem;
 }
 
-.btn:hover {
+.btn:hover, .btn_min:hover, .btn_max:hover {
   background-color: #ecf2fd;
 }
 
-.btn:active {
+.btn:active, .btn_min:active, .btn_max:active {
   background-color: #d1e0fe;
 }
 
-.btn:focus {
+.btn:focus, .btn_min:focus, .btn_max:focus {
   outline: none;
   border: black solid 2px;
+}
+
+.btn {
+  /* menu buttons flexbox styles */
+  flex-basis: 49%;
+}
+.btn_min {
+  flex-basis: 0%;
+}
+.btn_max {
+  flex-basis: 100%;
+}
+.in_edit, .in_edit_max, .in_edit_max_multi{
+  text-align: left;
+}
+.in_edit{
+  width: 50%;
+}
+.in_edit_max, .in_edit_max_multi{
+  width: 100%;
+}
+.in_edit_max_multi{
+  height: 100px;
 }
 
 .btn-primary {
@@ -54,4 +79,63 @@ body {
 
 .btn-primary:active {
   background-color: #212020;
+}
+
+checkbox-wrapper {
+  margin: .5rem 0;
+}
+
+/* Custom checkboxes
+Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-buttons-and-checkboxes */
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .15em; left: .22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #0d8dee;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
 }
