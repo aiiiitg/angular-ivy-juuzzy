@@ -46,8 +46,11 @@ export class ViewListComponent implements OnInit {
   clickout(event) {
     // add on click outside the addable component
     if(this.add && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("editAdd")) {
-      console.log("Save on click-outside Add item [was editing id=editedAdd" + " hit id="+ event.target.id +"]")
-      this.addItem((<HTMLInputElement>document.getElementById("editedAdd")).value);
+      console.log("Click-outside Add item [was editing id=editedAdd" + " hit id="+ event.target.id +"]")
+      if((<HTMLInputElement>document.getElementById("editedAdd")).value !=""){
+        this.addItem((<HTMLInputElement>document.getElementById("editedAdd")).value);
+      }
+      this.add = false;
     }
   }
 }

@@ -50,7 +50,7 @@ export class ItemComponent {
   clickout(event) {
     // save editing on click outside the editable component
     if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("edit"+this.item.id)) {
-      console.log("Save on click-outside item [was editing id="+ this.item.id /*+" "+ this.eRef.nativeElement*/ +" hit id="+ event.target.id +"]")
+      console.log("Click-outside Edited item [was editing id="+ this.item.id /*+" "+ this.eRef.nativeElement*/ +" hit id="+ event.target.id +"]")
       this.saveItem((<HTMLInputElement>document.getElementById("edited"+this.item.id)).value);
     }
   }

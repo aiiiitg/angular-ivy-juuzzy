@@ -109,13 +109,17 @@ label {
 
 /* checkbox aspect */
 [type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+[type="checkbox"]:checked + label:before,
+[type="checkbox"]:disabled + label:before {
   content: '';
   position: absolute;
   left: 0; top: 0.1rem;
   width: 1.25em; height: 1.25em;
   border: 2px solid #ccc;
   background: #fff;
+}
+[type="checkbox"]:disabled + label:before{
+  background: #eee;
 }
 
 /* checked mark aspect */
