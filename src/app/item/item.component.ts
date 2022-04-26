@@ -17,8 +17,11 @@ export class ItemComponent {
   @Input() view: 'list' | 'detail' = 'list';
   @Output() remove = new EventEmitter<Item>();
 
-  saveItemAndClose((title: string = "", detail: string = "", close: boolean = false))
-  saveItem(title: string = "", detail: string = "", close: boolean = false){
+  saveItemAndClose(title: string = "", detail: string = "", check: string = ""){
+    this.saveItem(title, detail, check);
+    this.openList();
+  }
+  saveItem(title: string = "", detail: string = "", check: string = ""){
     this.editable = false;
     if (title && title != ""){
       this.item.title = title;
@@ -26,8 +29,8 @@ export class ItemComponent {
     if (detail && detail != ""){
       this.item.detail = detail;
     }
-    if(close){
-      this.openList();
+    if(check && check!=""){
+      this.item.done = (check==="true");
     }
   }
   openList(){   

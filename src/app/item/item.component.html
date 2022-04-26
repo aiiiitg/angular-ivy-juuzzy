@@ -32,10 +32,10 @@
   <!-- detail view  -->
   <div *ngIf="view==='detail'">
     <div class="btn-wrapper">
-      <button class="btn_max" (click)="saveItem()"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
+      <button class="btn_max" (click)="saveItemAndClose(editedTitle.value, editedDetail.value, editedCheck.value)"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
     </div>
     ID: {{item.id}}<br/><br/>
-    <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+    <input [id]="item.id" type="checkbox" [checked]="item.done" #editedCheck />
     <label [for]="item.id">&nbsp;<span style="font-size: 1rem;">Done</span></label>
     <div class="btn-wrapper">
       <input class="in_edit_max" placeholder="edit item" [value]="item.title" #editedTitle (keyup.enter)="saveItem(editedTitle.value)">
@@ -45,7 +45,7 @@
     </div>
     <div class="btn-wrapper">
       <!-- accept on Back now
-      <button class="btn_max" (click)="saveItem(editedTitle.value, editedDetail.value, true)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>-->
+      <button class="btn_max" (click)="saveItem(editedTitle.value, editedDetail.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>-->
       <button class="btn_max" (click)="openDetail()"><mat-icon aria-hidden="false" aria-label="Cancel">undo</mat-icon></button>
     </div><br/><br/>
     <i>Warning: click the trashcan to delete forever.</i>
