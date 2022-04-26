@@ -41,7 +41,7 @@
   </h2>
   <ul>
     <li *ngFor="let item of items">    
-      <app-item *ngIf="!item.done" (remove)="remove(item)" [item]="item" [view]="list"></app-item>
+      <app-item *ngIf="!item.done" (remove)="remove(item)" [item]="item" [view]="'list'"></app-item>
     </li>
   </ul>
 
@@ -52,7 +52,7 @@
   </h2>
   <ul>
     <li *ngFor="let item of items">    
-      <app-item *ngIf="item.done" (remove)="remove(item)" [item]="item" [view]="list"></app-item>
+      <app-item *ngIf="item.done" (remove)="remove(item)" [item]="item" [view]="'list'"></app-item>
     </li>
   </ul>
 </div>
