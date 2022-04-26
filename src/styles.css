@@ -47,13 +47,14 @@ body {
   text-align: left;
 }
 .in_edit{
-  width: 50%;
+  /*width: 50%;*/
+  flex-basis: 100%;
 }
 .in_edit_max, .in_edit_max_multi{
   width: 100%;
 }
 .in_edit_max_multi{
-  height: 100px;
+  height: 6.5rem;
 }
 
 .btn-primary {
