@@ -16,12 +16,8 @@ export class ViewDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private location: Location, public todoService: TodoService) {}
   ngOnInit() {
-    // snapshot way
-    console.log('thing', this.route.snapshot.params.id);
-
-    // observable way
+    // observable below - can also use snapshot (this.route.snapshot.params.id)
     this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
       this.id = parseInt(params.get('id'));
     });
 
