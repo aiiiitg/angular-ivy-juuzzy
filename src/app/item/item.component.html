@@ -30,16 +30,20 @@
 
   <!-- detail view  -->
   <div *ngIf="view==='detail'">
-      <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
-      <label [for]="item.id">&nbsp; Done</label>
-      <div class="btn-wrapper">
-        <input class="in_edit_max" placeholder="edit item" [value]="item.title" #editedTitle (keyup.enter)="saveItem(editedTitle.value)">
-      </div>
-      <div class="btn-wrapper">
-        <textarea class="in_edit_max_multi" placeholder="edit item" [value]="item.detail" #editedDetail (keyup.enter)="saveItem('', editedDetail.value)"></textarea>
-      </div>
-      <div class="btn-wrapper">
-        <button class="btn_max" (click)="saveItem(editedTitle.value, editedDetail.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
+    <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+    <label [for]="item.id">&nbsp; Done</label>
+    <div class="btn-wrapper">
+      <input class="in_edit_max" placeholder="edit item" [value]="item.title" #editedTitle (keyup.enter)="saveItem(editedTitle.value)">
+    </div>
+    <div class="btn-wrapper">
+      <textarea class="in_edit_max_multi" placeholder="edit item" [value]="item.detail" #editedDetail (keyup.enter)="saveItem('', editedDetail.value)"></textarea>
+    </div>
+    <div class="btn-wrapper">
+      <button class="btn_max" (click)="saveItem(editedTitle.value, editedDetail.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
+    </div><br/><br/>
+    <i>Warning: click the trashcan to delete forever.</i>
+    <div class="btn-wrapper">
+      <button class="btn_max" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
     </div>
   </div>
 </div>

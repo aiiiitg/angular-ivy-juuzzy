@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+//import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Item } from '../item';
 import { TodoService } from '../todo.service';
@@ -14,7 +15,7 @@ export class ViewDetailComponent implements OnInit {
   id: number;
   item: Item;
 
-  constructor(private route: ActivatedRoute, private location: Location, public todoService: TodoService) {}
+  constructor(private route: ActivatedRoute, private router: Router, public todoService: TodoService) {}
   ngOnInit() {
     // observable below - can also use snapshot (this.route.snapshot.params.id)
     this.route.paramMap.subscribe(params => {
@@ -25,7 +26,7 @@ export class ViewDetailComponent implements OnInit {
         .subscribe(item => this.item = item);
   }
   goBack(){
-    this.location.back();
+    this.router.navigate(['']); //this.location.back();
   }
   remove(item: Item) {
     this.todoService.remove(item);

@@ -17,7 +17,7 @@ export class ItemComponent {
   @Input() view: 'list' | 'detail' = 'list';
   @Output() remove = new EventEmitter<Item>();
 
-  saveItem(title: string = "", detail: string = "") {
+  saveItem(title: string = "", detail: string = "", close: boolean = false){
     this.editable = false;
     if (title && title != ""){
       this.item.title = title;
@@ -25,8 +25,14 @@ export class ItemComponent {
     if (detail && detail != ""){
       this.item.detail = detail;
     }
+    if(close){
+      this.openList();
+    }
   }
 
+  openList(){   
+    this.router.navigate(['']); //this.location.back();
+  }
   openDetail(){
     console.log("View Detail item=" + this.item.id);
     this.router.navigate(['/item/'+ this.item.id]);
