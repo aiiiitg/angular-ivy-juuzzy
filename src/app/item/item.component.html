@@ -36,7 +36,7 @@
       <input class="in_edit_max" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
     </div>
     <div class="btn-wrapper">
-      <input class="in_edit_max_multi" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+      <textarea class="in_edit_max_multi" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)"></textarea>
     </div>
     <div class="btn-wrapper">
       <button class="btn_min" (click)="saveItem(editedItem.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
