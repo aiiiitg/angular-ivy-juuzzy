@@ -10,6 +10,7 @@ export class TodoService {
   allItems = new Array();
   filter: 'all' | 'active' | 'done' = 'all';
   idIncrement = 0;
+  selected = 0;
 
   constructor() { }
 
