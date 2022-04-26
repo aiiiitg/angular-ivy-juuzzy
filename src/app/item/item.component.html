@@ -32,7 +32,7 @@
   <!-- detail view  -->
   <div *ngIf="view==='detail'">
     <div class="btn-wrapper">
-      <button class="btn_max" (click)="saveItemAndClose(editedTitle.value, editedDetail.value, editedCheck.value)"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
+      <button class="btn_max" (click)="saveItemAndClose(editedTitle.value, editedDetail.value, (editedCheck.checked+''))"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
     </div>
     ID: {{item.id}}<br/><br/>
     <input [id]="item.id" type="checkbox" [checked]="item.done" #editedCheck />

@@ -18,6 +18,7 @@ export class ItemComponent {
   @Output() remove = new EventEmitter<Item>();
 
   saveItemAndClose(title: string = "", detail: string = "", check: string = ""){
+    console.log("check "+check);
     this.saveItem(title, detail, check);
     this.openList();
   }
