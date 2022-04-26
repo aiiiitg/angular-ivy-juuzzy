@@ -17,10 +17,14 @@ export class ItemComponent {
   @Input() view: 'list' | 'detail' = 'list';
   @Output() remove = new EventEmitter<Item>();
 
-  saveItem(description: string) {
-    if (!description) return;
+  saveItem(title: string = "", detail: string = "") {
     this.editable = false;
-    this.item.description = description;
+    if (title && title != ""){
+      this.item.title = title;
+    }
+    if (detail && detail != ""){
+      this.item.detail = detail;
+    }
   }
 
   openDetail(){
