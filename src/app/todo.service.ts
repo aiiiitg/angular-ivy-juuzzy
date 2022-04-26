@@ -33,12 +33,14 @@ export class TodoService {
 
   getItems(): Observable<Item[]> {
     const items = of(this.allItems);
+    this.idIncrement = 0;
     for(let item of this.allItems){
       if(item.id > this.idIncrement){
         this.idIncrement = item.id;
       }
     }
     this.idIncrement++;
+    console.log(this.idIncrement);
     /*
     if (this.filter === 'all') {
       items = of(this.allItems);
@@ -64,8 +66,8 @@ export class TodoService {
       title: title,
       detail: ""
     });
+    console.log("Added item id="+ this.idIncrement +" title="+ title);
     this.idIncrement++;
-    console.log("Added item "+ this.allItems[this.idIncrement-1]);
   }
   
   remove(item) {
