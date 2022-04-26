@@ -34,21 +34,20 @@ export class ViewListComponent implements OnInit {
     return this.todoService.countItems(filter);
   }
 
-  addItem(description: string){
-    return this.todoService.addItem(description);    
+  addItem(title: string){
+    return this.todoService.addItem(title);    
   }
   
   remove(item: Item) {
     return this.todoService.remove(item);
   }
 
-
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    // save editing on click outside the editable component
-    if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("edit"+this.item.id)) {
-      console.log("Save on click-outside item [was editing id="+ this.item.id /*+" "+ this.eRef.nativeElement*/ +" hit id="+ event.target.id +"]")
-      this.saveItem((<HTMLInputElement>document.getElementById("edited"+this.item.id)).value);
+    // add on click outside the addable component
+    if(this.add && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("editAdd")) {
+      console.log("Save on click-outside Add item [was editing id=editedAdd" + " hit id="+ event.target.id +"]")
+      this.addItem((<HTMLInputElement>document.getElementById("editedAdd")).value);
     }
   }
 }

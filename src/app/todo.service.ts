@@ -56,23 +56,19 @@ export class TodoService {
     return this.allItems.filter(item => filter === 'done' ? item.done : !item.done).length;
   }
 
-  addItem(description: string){
+  addItem(title: string){
     // unshift (to top), push (to end)
     this.allItems.unshift({
       id: this.idIncrement,
-      description,
-      done: false
+      done: false,
+      title: title,
+      detail: ""
     });
     this.idIncrement++;
+    console.log("Added item "+ this.allItems[this.idIncrement-1]);
   }
   
   remove(item) {
     this.allItems.splice(this.allItems.indexOf(item), 1);
   }
-  /*
-  getHeroes(): Observable<Hero[]> {
-    const heroes = of(HEROES);
-    this.messageService.add('HeroService: fetched heroes');
-    return heroes;
-  }*/
 }
