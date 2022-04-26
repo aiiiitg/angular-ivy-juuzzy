@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Item } from '../item';
 import { TodoService } from '../todo.service';
-import 'rxjs/add/operator/switchMap';
+//import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,7 @@ export class ViewDetailComponent implements OnInit {
     // observable way
     this.route.paramMap.subscribe(params => {
       console.log(params.get('id'));
-      this.id = +params.get('id');
+      //this.id = params.get('id');
     });
   }
 }
