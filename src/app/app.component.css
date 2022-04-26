@@ -35,10 +35,6 @@ label {
   font-size: 1rem;
 }
 
-.btn-wrapper {
-  margin-bottom: 2rem;
-}
-
 .btn-menu {
   flex-basis: 32%;
 }

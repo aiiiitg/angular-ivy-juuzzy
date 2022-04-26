@@ -8,6 +8,8 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
 }
 
 .btn, .btn_min, .btn_max, .in_edit {
@@ -29,6 +31,20 @@ body {
 .btn:focus, .btn_min:focus, .btn_max:focus {
   outline: none;
   border: black solid 2px;
+}
+
+.btn {
+  /* menu buttons flexbox styles */
+  flex-basis: 49%;
+}
+.btn_min {
+  flex-basis: 0%;
+}
+.btn_max {
+  flex-basis: 100%;
+}
+.in_edit{
+  width: 50%;
 }
 
 .btn-primary {
