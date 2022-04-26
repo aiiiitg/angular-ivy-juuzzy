@@ -1,5 +1,5 @@
 <div class="view-detail">
   <button class="btn_max" (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button><br/>
   ID: {{id}}<br/>
-
+  <app-item *ngIf="item.done" (remove)="remove(item)" [item]="item"></app-item>
 </div>

@@ -10,7 +10,6 @@ export class TodoService {
   allItems = new Array();
   filter: 'all' | 'active' | 'done' = 'all';
   idIncrement = 0;
-  selected = 0;
 
   constructor() { }
 
@@ -20,6 +19,16 @@ export class TodoService {
     this.allItems.push({ id: 2, description: 'sleep', done: false });
     this.allItems.push({ id: 3, description: 'play', done: false });
     this.allItems.push({ id: 4, description: 'laugh', done: false });
+  }
+
+  getItem(id: number): Observable<Item> {
+    const items = of(this.allItems);
+    for(let item of this.allItems){
+      if(item.id === id){
+        return item;
+      }
+    }
+    return null;
   }
 
   getItems(): Observable<Item[]> {

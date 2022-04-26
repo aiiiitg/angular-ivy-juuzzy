@@ -12,6 +12,7 @@ import { TodoService } from '../todo.service';
 })
 export class ViewDetailComponent implements OnInit {
   id: number;
+  item: Item;
 
   constructor(private route: ActivatedRoute, private location: Location, public todoService: TodoService) {}
   ngOnInit() {
@@ -23,6 +24,8 @@ export class ViewDetailComponent implements OnInit {
       console.log(params.get('id'));
       this.id = parseInt(params.get('id'));
     });
+
+    this.item = this.todoService.getItem(this.id)
   }
   goBack(){
     this.location.back();
