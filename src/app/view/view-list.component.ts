@@ -6,7 +6,7 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-home',
   templateUrl: './view-list.component.html',
-  styleUrls: [ './view-list.component.css' ]
+  styleUrls: [ '../app.component.css' ]
 })
 export class ViewListComponent implements OnInit {
   items: Item[] = [];
