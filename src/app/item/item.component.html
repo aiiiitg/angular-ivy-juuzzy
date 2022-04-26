@@ -1,6 +1,6 @@
 <div class="item">
-
-<div class="btn-wrapper" *ngIf="!editable && !item.done">
+<!-- list view - non-editable and unchecked -->
+<div class="btn-wrapper" *ngIf="view==='list' && !editable && !item.done">
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
   <button  class="btn_max" (click)="editable = !editable" style="text-align: left;">{{item.description}}</button>
@@ -8,7 +8,8 @@
   <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
-<div class="btn-wrapper" *ngIf="!editable && item.done">
+<!-- list view - non-editable and checked -->
+<div class="btn-wrapper" *ngIf="view==='list' && !editable && item.done">
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
   <button  class="btn_max" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.description}}</button>
@@ -16,8 +17,8 @@
   <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
-<!-- This section shows only if user clicks Edit button -->
-<div *ngIf="editable">
+<!-- list view - editable -->
+<div *ngIf="view==='list' && editable">
   <div class="btn-wrapper">
     <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
     <label [for]="item.description">&nbsp;</label>
@@ -27,4 +28,14 @@
   </div>
 </div>
 
+<!-- detail view  -->
+<div *ngIf="view==='detail'">
+  <div class="btn-wrapper">
+    <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+    <label [for]="item.description">&nbsp;</label>
+    <input class="in_edit" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+    <button class="btn_min" (click)="saveItem(editedItem.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
+    <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">close</mat-icon></button>
+  </div>
+</div>
 </div>
