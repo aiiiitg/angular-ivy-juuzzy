@@ -17,6 +17,7 @@ export class ItemComponent {
   @Input() view: 'list' | 'detail' = 'list';
   @Output() remove = new EventEmitter<Item>();
 
+  saveItemAndClose((title: string = "", detail: string = "", close: boolean = false))
   saveItem(title: string = "", detail: string = "", close: boolean = false){
     this.editable = false;
     if (title && title != ""){
@@ -35,7 +36,10 @@ export class ItemComponent {
   }
   openDetail(){
     console.log("View Detail item=" + this.item.id);
-    this.router.navigate(['/item/'+ this.item.id]);
+    // add skipLocationChange to allow a detail page to reload itself on undo
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/item/'+ this.item.id]);
+    });
   }
 
   @HostListener('document:click', ['$event'])

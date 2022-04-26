@@ -31,6 +31,10 @@
 
   <!-- detail view  -->
   <div *ngIf="view==='detail'">
+    <div class="btn-wrapper">
+      <button class="btn_max" (click)="saveItem()"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
+    </div>
+    ID: {{item.id}}<br/><br/>
     <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
     <label [for]="item.id">&nbsp;<span style="font-size: 1rem;">Done</span></label>
     <div class="btn-wrapper">
