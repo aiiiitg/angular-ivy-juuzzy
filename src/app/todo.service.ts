@@ -22,10 +22,9 @@ export class TodoService {
   }
 
   getItem(id: number): Observable<Item> {
-    const items = of(this.allItems);
     for(let item of this.allItems){
       if(item.id === id){
-        return item;
+        return of(item);
       }
     }
     return null;
