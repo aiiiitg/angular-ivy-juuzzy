@@ -15,10 +15,11 @@ export class TodoService {
 
   addMockData(){
     // populate items list with mock data
-    this.allItems.push({ id: 1, description: 'eat', done: true });
-    this.allItems.push({ id: 2, description: 'sleep', done: false });
-    this.allItems.push({ id: 3, description: 'play', done: false });
-    this.allItems.push({ id: 4, description: 'laugh', done: false });
+    this.allItems.push({ id: 1, done: true, title: "List Todos", detail: "As a user I would like to list my current todos." });
+    this.allItems.push({ id: 2, done: false, title: "Change Todo states", detail: "As a user I would like to change a todo state by checking a 'box'." });
+    this.allItems.push({ id: 3, done: false, title: "Add Todo detail", detail: "As a user I would like to display one of my todo in a separate or dedicated view. This todo will contain its title and a description (which is a new information not shown in the previous view)." });
+    this.allItems.push({ id: 4, done: false, title: "Add a new Todo", detail: "As a user I would like to add a new todo in my list." });
+    this.allItems.push({ id: 5, done: false, title: "Check yo' self", detail: "Are these Todos too meta ? ;)" });
   }
 
   getItem(id: number): Observable<Item> {
