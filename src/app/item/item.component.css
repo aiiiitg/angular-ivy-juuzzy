@@ -13,6 +13,15 @@
   /* menu buttons flexbox styles */
   flex-basis: 49%;
 }
+.btn_min {
+  flex-basis: 0%;
+}
+.btn_max {
+  flex-basis: 100%;
+}
+.in_edit{
+  width: 50%;
+}
 
 .btn-save {
   background-color: #000;
