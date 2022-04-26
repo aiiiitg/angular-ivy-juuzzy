@@ -16,11 +16,17 @@ export class ItemComponent {
   @Input() item: Item;
   @Input() newItem: string;
   @Output() remove = new EventEmitter<Item>();
-  saveItem(description) {
+  
+  setView(view: 'list' | 'detail' = 'list'){
+    this.view = view;
+  }
+
+  saveItem(description: string) {
     if (!description) return;
     this.editable = false;
     this.item.description = description;
   }
+
   openDetail(id: number){
     console.log("/item/" +id)
     this.router.navigate(['/item/'+ id]);
