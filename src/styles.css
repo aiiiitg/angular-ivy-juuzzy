@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
 }
 
-.btn {
+.btn, .btn_min, .btn_max, .in_edit {
   color: #000;
   background-color: #fff;
   border: 2px solid #cecece;
@@ -18,15 +18,15 @@ body {
   font-size: 1rem;
 }
 
-.btn:hover {
+.btn:hover, .btn_min:hover, .btn_max:hover {
   background-color: #ecf2fd;
 }
 
-.btn:active {
+.btn:active, .btn_min:active, .btn_max:active {
   background-color: #d1e0fe;
 }
 
-.btn:focus {
+.btn:focus, .btn_min:focus, .btn_max:focus {
   outline: none;
   border: black solid 2px;
 }
