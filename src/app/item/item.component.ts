@@ -9,7 +9,7 @@ import { Item } from "../item";
   styleUrls: [ '../app.component.css' ]
 })
 export class ItemComponent {
-  editable = false;
+  editable = false; 
   constructor(private router: Router, private eRef: ElementRef){} 
 
   @Input() item: Item;
@@ -38,6 +38,11 @@ export class ItemComponent {
     this.router.navigate(['/item/'+ this.item.id]);
   }
 
+  myusername:string="";
+  constructor(usernameElement: ElementRef){
+    this.usernameElement=usernameElement;
+    
+  }
   @HostListener('document:click', ['$event'])
   clickout(event) {
     // save editing on click outside the editable component
