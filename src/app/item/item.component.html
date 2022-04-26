@@ -38,10 +38,10 @@
     <input [id]="item.id" type="checkbox" [checked]="item.done" #editedCheck />
     <label [for]="item.id">&nbsp;<span style="font-size: 1rem;">Done</span></label>
     <div class="btn-wrapper">
-      <input class="in_edit_max" placeholder="edit item" [value]="item.title" #editedTitle (keyup.enter)="saveItem(editedTitle.value)">
+      <input class="in_edit_max" placeholder="edit item" [value]="item.title" #editedTitle>
     </div>
     <div class="btn-wrapper">
-      <textarea class="in_edit_max_multi" placeholder="edit item" [value]="item.detail" #editedDetail (keyup.enter)="saveItem('', editedDetail.value)"></textarea>
+      <textarea class="in_edit_max_multi" placeholder="edit item" [value]="item.detail" #editedDetail></textarea>
     </div>
     <div class="btn-wrapper">
       <!-- accept on Back now
