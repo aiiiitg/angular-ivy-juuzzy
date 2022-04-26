@@ -8,7 +8,7 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-home',
   template: `
-  <button class="btn" (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button>
+  <button class="btn" (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon></button><br/>
   <h1>This is {{ id }}'s profile!</h1>`,
   styleUrls: [ '../app.component.css' ]
 })
