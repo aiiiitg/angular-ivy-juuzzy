@@ -19,10 +19,10 @@ body {
   padding: .35rem 1rem .25rem 1rem;
   font-size: 1rem;
 }
-
+/* disabled hover effects as they get stuck on touch behaviors
 .btn:hover, .btn_min:hover, .btn_max:hover {
   background-color: #ecf2fd;
-}
+}*/
 
 .btn:active, .btn_min:active, .btn_max:active {
   background-color: #d1e0fe;
