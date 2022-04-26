@@ -1,44 +1,7 @@
 <div class="view-list">
-  <input
-    #newItem
-    placeholder="add an item"
-    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-    class="lg-text-input"
-    id="addItemInput"
-  />
-
-  <button class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button>
-
-  <!-- Buttons that show all, still to do, or done items on click -->
-<!--
-  <div class="btn-wrapper">
-    <button
-      class="btn btn-menu"
-      [class.active]="getFilter() == 'all'"
-      (click)="setFilter('all')">
-      All
-    </button>
-
-    <button
-      class="btn btn-menu"
-      [class.active]="getFilter() == 'active'"
-      (click)="setFilter('active')">
-      To Do
-    </button>
-
-    <button
-      class="btn btn-menu"
-      [class.active]="getFilter() == 'done'"
-      (click)="setFilter('done')">
-      Done
-    </button>
-  </div>
--->
   <!-- Todo Block -->
-  <h2>{{countItems('todo')}} 
-    <span *ngIf="countItems('todo') === 1; else multiTodo">item todo</span>
-    <ng-template #multiTodo>items todo</ng-template>
-  </h2>
+  <h2>Todo {{countItems('todo')}} / {{countItems('all')}}</h2>
+  
   <ul>
     <li *ngFor="let item of items">    
       <app-item *ngIf="!item.done" (remove)="remove(item)" [item]="item" [view]="'list'"></app-item>
@@ -46,10 +9,7 @@
   </ul>
 
   <!-- Done Block -->
-  <h2>{{countItems('done')}} 
-    <span *ngIf="countItems('done') === 1; else multiDone">item done</span>
-    <ng-template #multiDone>items done</ng-template>
-  </h2>
+  <h2>Done {{countItems('done')}} / {{countItems('all')}}</h2>
   <ul>
     <li *ngFor="let item of items">    
       <app-item *ngIf="item.done" (remove)="remove(item)" [item]="item" [view]="'list'"></app-item>

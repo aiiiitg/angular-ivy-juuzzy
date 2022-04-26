@@ -88,6 +88,12 @@ checkbox-wrapper {
 /* Custom checkboxes
 Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-buttons-and-checkboxes */
 
+label {
+  font-size: 1.85rem;
+  display: block;
+  padding: 0rem;
+}
+
 /* Base for label styling */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -106,7 +112,7 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left: 0; top: 0;
+  left: 0; top: 0.1rem;
   width: 1.25em; height: 1.25em;
   border: 2px solid #ccc;
   background: #fff;
