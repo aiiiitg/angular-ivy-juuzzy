@@ -38,17 +38,12 @@ export class ItemComponent {
     this.router.navigate(['/item/'+ this.item.id]);
   }
 
-  myusername:string="";
-  constructor(usernameElement: ElementRef){
-    this.usernameElement=usernameElement;
-    
-  }
   @HostListener('document:click', ['$event'])
   clickout(event) {
     // save editing on click outside the editable component
     if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("edit"+this.item.id)) {
       //console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target.id)
-      this.saveItem(editedTitle.value);
+      //this.saveItem(editedTitle.value);
     }
   }
 }
