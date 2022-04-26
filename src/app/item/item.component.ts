@@ -42,8 +42,8 @@ export class ItemComponent {
   clickout(event) {
     // save editing on click outside the editable component
     if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("edit"+this.item.id)) {
-      console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target.id)
-      //this.saveItem(this.eRef.nativeElement.id); //editedItem.value);
+      //console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target.id)
+      this.saveItem(editedTitle.value);
     }
   }
 }

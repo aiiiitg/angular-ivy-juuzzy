@@ -23,8 +23,9 @@
       <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
       <label [for]="item.id">&nbsp;</label>
       <input class="in_edit" placeholder="edit item" [value]="item.title" #editedTitle (keyup.enter)="saveItem(editedTitle.value)">
-      <button class="btn_min" (click)="saveItem(editedTitle.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
-      <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">close</mat-icon></button>
+      <!-- accept on click outside now
+        <button class="btn_min" (click)="saveItem(editedTitle.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>-->
+      <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">undo<!--close--></mat-icon></button>
     </div>
   </div>
 
