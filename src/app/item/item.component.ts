@@ -30,6 +30,7 @@ export class ItemComponent {
     }
   }
   openList(){   
+    console.log("View List");
     this.router.navigate(['']); //this.location.back();
   }
   openDetail(){
