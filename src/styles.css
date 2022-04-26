@@ -12,7 +12,7 @@ body {
   margin-bottom: .5rem;
 }
 
-.btn, .btn_min, .btn_max, .in_edit {
+.btn, .btn_min, .btn_max, .in_edit, in_edit_max, in_edit_max_multi {
   color: #000;
   background-color: #fff;
   border: 2px solid #cecece;
@@ -45,6 +45,12 @@ body {
 }
 .in_edit{
   width: 50%;
+}
+.in_edit_max, .in_edit_max_multi{
+  width: 100%;
+}
+.in_edit_max_multi{
+  height: 100px;
 }
 
 .btn-primary {

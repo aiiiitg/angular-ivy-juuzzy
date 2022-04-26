@@ -30,12 +30,17 @@
 
 <!-- detail view  -->
 <div *ngIf="view==='detail'">
-  <div class="btn-wrapper">
     <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
-    <label [for]="item.description">&nbsp;</label>
-    <input class="in_edit" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
-    <button class="btn_min" (click)="saveItem(editedItem.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
-    <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">close</mat-icon></button>
+    <label [for]="item.description">&nbsp; Done</label>
+    <div class="btn-wrapper">
+      <input class="in_edit_max" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+    </div>
+    <div class="btn-wrapper">
+      <input class="in_edit_max_multi" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+    </div>
+    <div class="btn-wrapper">
+      <button class="btn_min" (click)="saveItem(editedItem.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
+      <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">close</mat-icon></button>
   </div>
 </div>
 </div>
