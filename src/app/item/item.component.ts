@@ -9,7 +9,7 @@ import { Item } from "../item";
   styleUrls: [ '../app.component.css' ]
 })
 export class ItemComponent {
-
+  view: 'list' | 'detail' = 'list';
   editable = false;
   constructor(private router: Router){} 
 
