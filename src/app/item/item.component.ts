@@ -23,7 +23,7 @@ export class ItemComponent {
   }
   openDetail(id: number){
     console.log("/item/" +id)
-    //this.router.navigate(['/item/'+ id]);
+    this.router.navigate(['/item/'+ id]);
   }
 
   /* Abandon click outside code as taking too long, use simple tick/cross buttons ---
