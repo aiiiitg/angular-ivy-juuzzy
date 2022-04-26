@@ -38,12 +38,11 @@ export class ItemComponent {
     this.router.navigate(['/item/'+ this.item.id]);
   }
 
-  //Abandon click outside code as taking too long, use simple tick/cross buttons ---
   @HostListener('document:click', ['$event'])
   clickout(event) {
     // save editing on click outside the editable component
-    if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target)) {
-      console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target)
+    if(this.view === 'list' && this.editable && !this.eRef.nativeElement.contains(event.target) && event.target.id!=("edit"+this.item.id)) {
+      console.log(this.item.id +" "+ this.eRef.nativeElement +" "+ event.target.id)
       //this.saveItem(this.eRef.nativeElement.id); //editedItem.value);
     }
   }

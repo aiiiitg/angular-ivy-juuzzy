@@ -3,7 +3,7 @@
   <div class="btn-wrapper" *ngIf="view==='list' && !editable && !item.done">
     <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
   <label [for]="item.id">&nbsp;</label>
-    <button  class="btn_max" (click)="editable = !editable" style="text-align: left;">{{item.title}}</button>
+    <button  class="btn_max" id="edit{{item.id}}" (click)="editable = !editable" style="text-align: left;">{{item.title}}</button>
     <button class="btn_min" (click)="openDetail()"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
     <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
   </div>
@@ -12,7 +12,7 @@
   <div class="btn-wrapper" *ngIf="view==='list' && !editable && item.done">
     <input [id]="item.id" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
   <label [for]="item.id">&nbsp;</label>
-    <button  class="btn_max" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.title}}</button>
+    <button  class="btn_max" id="edit{{item.id}}" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.title}}</button>
     <button class="btn_min" (click)="openDetail()"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
     <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
   </div>
