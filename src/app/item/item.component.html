@@ -3,28 +3,27 @@
 <div class="btn-wrapper" *ngIf="!editable && !item.done">
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
-  <button  class="btn" (click)="editable = !editable" style="text-align: left;">{{item.description}}</button>
-  <button class="btn" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
-  <button class="btn btn-warn" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
+  <button  class="btn_max" (click)="editable = !editable" style="text-align: left;">{{item.description}}</button>
+  <button class="btn_min" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
+  <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
 <div class="btn-wrapper" *ngIf="!editable && item.done">
   <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
 <label [for]="item.description">&nbsp;</label>
-  <button  class="btn" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.description}}</button>
-  <button class="btn" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
-  <button class="btn btn-warn" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
+  <button  class="btn_max" (click)="editable = !editable" style="text-align: left; text-decoration: line-through;">{{item.description}}</button>
+  <button class="btn_min" (click)="openDetail(item.id)"><mat-icon aria-hidden="false" aria-label="Detail">notes</mat-icon></button>
+  <button class="btn_min" (click)="remove.emit()"><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon></button>
 </div>
 
 <!-- This section shows only if user clicks Edit button -->
 <div *ngIf="editable">
-  <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
-<label [for]="item.description">&nbsp;</label>
-  <input class="sm-text-input" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
-
   <div class="btn-wrapper">
-    <button class="btn" (click)="editable = !editable">Cancel</button>
-    <button class="btn" (click)="saveItem(editedItem.value)">Save</button>
+    <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+    <label [for]="item.description">&nbsp;</label>
+    <input class="in_edit" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+    <button class="btn_min" (click)="saveItem(editedItem.value)"><mat-icon aria-hidden="false" aria-label="Accept">check</mat-icon></button>
+    <button class="btn_min" (click)="editable = !editable"><mat-icon aria-hidden="false" aria-label="Cancel">close</mat-icon></button>
   </div>
 </div>
 
