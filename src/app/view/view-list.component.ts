@@ -37,7 +37,7 @@ export class ViewListComponent implements OnInit {
     return this.todoService.addItem(description);    
   }
   
-  remove(item) {
+  remove(item: Item) {
     return this.todoService.remove(item);
   }
 }

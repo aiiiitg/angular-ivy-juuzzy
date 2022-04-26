@@ -31,4 +31,8 @@ export class ViewDetailComponent implements OnInit {
   goBack(){
     this.location.back();
   }
+  remove(item: Item) {
+    this.todoService.remove(item);
+    this.goBack();
+  }
 }
